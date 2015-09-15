@@ -106,9 +106,11 @@ def get_celery_includes_list():
 
 @operation
 @init_worker_installer
-def install(ctx, runner, agent_config, **kwargs):
-    agent_package_url = get_agent_resource_url(
-        ctx, agent_config, 'agent_package_path')
+def install(runner, agent_config, agent_package_url=None, **kwargs):
+
+    if not agent_package_url.__contains__('http'):
+        agent_package_url = get_agent_resource_url(
+            ctx, agent_config, 'agent_package_path')
 
     ctx.logger.debug("Pinging agent installer target")
     runner.ping()

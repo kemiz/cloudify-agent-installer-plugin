@@ -25,7 +25,7 @@ setup(
     license='LICENSE',
     description='Plugin for installing a Cloudify agent on a machine',
     install_requires=[
-        'cloudify-plugins-common==3.2',
+        'cloudify-plugins-common==3.2.1',
         'fabric==1.8.3',
         'jinja2==2.7.2'
     ],
